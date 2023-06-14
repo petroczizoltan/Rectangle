@@ -157,6 +157,13 @@ extension NSScreen {
         newFrame.origin.y += Defaults.screenEdgeGapBottom.cgFloat
         newFrame.size.width -= (Defaults.screenEdgeGapLeft.cgFloat + Defaults.screenEdgeGapRight.cgFloat)
         newFrame.size.height -= (Defaults.screenEdgeGapTop.cgFloat + Defaults.screenEdgeGapBottom.cgFloat)
+        
+        if (self == NSScreen.screens.first) {
+            let mainScreenBottomOffset = 59.0 + 11 + Defaults.gapSize.cgFloat
+            newFrame.origin.y += mainScreenBottomOffset
+            newFrame.size.height -= mainScreenBottomOffset
+            
+        }
 
         return newFrame
     }
